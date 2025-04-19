@@ -17,8 +17,11 @@ class App(tk.Tk):
         self.username = tk.Entry(self)
         self.username.pack()
 
+        self.error = tk.Label(self, text="", foreground="red", anchor="w")
+        self.error.pack(fill="x", pady=(0, 5))
+
         self.submit = tk.Button(self, text="Submit")
-        self.submit.pack()
+        self.submit.pack(side="right")
 
         self.submit.config(command=self.submit_form)
 
@@ -27,6 +30,9 @@ class App(tk.Tk):
         if username:
             self.welcome(username)
             self.username.delete("0", "end")
+            self.error.config(text="")
+        else:
+            self.error.config(text="Who are you?")
 
     def welcome(self, name: str):
         messagebox.showinfo("Welcome", f"Hi {name}, how are you?")
@@ -35,4 +41,3 @@ class App(tk.Tk):
 if __name__ == "__main__":
     app = App("Hello")
     app.mainloop()
-
