@@ -9,6 +9,7 @@ name = "pypi"
 mypy = "*"
 pyinstaller = "*"
 macholib = {version="*", sys_platform="=='darwin'"}
+pywin32-ctypes = {version="*", sys_platform="=='win32'"}
 
 [requires]
 python_version = "3.11"
