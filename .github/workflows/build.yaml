@@ -41,7 +41,7 @@ jobs:
       - name: Move binary to output
         run: |
           mkdir output
-          cp dist/* output/
+          cp -r dist/* output/
         shell: bash
 
       - name: Upload artifacts
