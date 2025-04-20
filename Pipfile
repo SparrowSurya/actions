@@ -18,4 +18,4 @@ python_version = "3.11"
 [scripts]
 test = "python3 -m unittest discover"
 mypy = "mypy app.py"
-build = "pyinstaller app.py --onefile"
+build = "pyinstaller app.py --onefile --noconsole --name=hello"
