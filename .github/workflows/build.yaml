@@ -32,10 +32,11 @@ jobs:
 
       - name: Build with PyInstaller
         run: |
+          ARCH=$(uname -m)
           if [ "${{ runner.os }}" = "macOS" ]; then
-            pipenv run pyinstaller app.py --onedir --noconsole --name="${{ runner.os }}-${{ github.ref_name }}"
+            pipenv run pyinstaller app.py --onedir --noconsole --name="${{ runner.os }}-{ARCH}-${{ github.ref_name }}"
           else
-            pipenv run pyinstaller app.py --onefile --noconsole --name="${{ runner.os }}-${{ github.ref_name }}"
+            pipenv run pyinstaller app.py --onefile --noconsole --name="${{ runner.os }}-{ARCH}-${{ github.ref_name }}"
           fi
         shell: bash
 
