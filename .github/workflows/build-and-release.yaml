@@ -45,3 +45,12 @@ jobs:
         with:
           name: ${{ runner.os }}-build
           path: output/
+
+      - name: Release
+        uses: softprops/action-gh-release@v2
+        if: github.ref_type == 'tag'
+        with:
+          name: ${{ runner.os }}-build
+          files: output/*
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
